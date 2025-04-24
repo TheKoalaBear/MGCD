@@ -64,7 +64,7 @@ function AppContent() {
         {" "}
         {/* Pass location and key */}
         <Route
-          path="/"
+          path="/MGCD"
           element={
             <PageWrapper>
               <HomePage />
