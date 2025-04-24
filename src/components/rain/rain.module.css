@@ -1,0 +1,103 @@
+/* Container for the entire rain effect */
+.rainContainer {
+  position: relative; /* Establishes positioning context for absolute children */
+  overflow: hidden; /* Hides drops animating outside the bounds */
+  width: 100%;
+  height: 100%; /* Takes height from parent (.contentBox) */
+}
+
+/* General container for front/back rows of rain */
+.rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* Styles specifically for the back row (currently less opaque) */
+.backRow {
+  opacity: 0.5;
+}
+
+/* Individual raindrop element */
+.drop {
+  position: absolute;
+  bottom: 100%; /* Start position just above the container top */
+  width: 15px; /* Width of the drop/splat area */
+  height: 170%; /* Visual height of the falling drop stem */
+  pointer-events: none; /* Allows clicking through the drops */
+  animation: drop 0.5s linear infinite; /* Assigns the falling animation */
+}
+
+/* Keyframes for the falling animation */
+@keyframes drop {
+  0% {
+    transform: translateY(0%); /* Start position */
+  }
+  75% {
+    transform: translateY(100%); /* Fall to the bottom edge */
+  }
+  100% {
+    transform: translateY(100%); /* Stay at the bottom briefly before reset */
+  }
+}
+
+/* The visual stem of the raindrop */
+.stem {
+  width: 1px;
+  height: 60%; /* Percentage of the .drop height */
+  margin-left: 7px; /* Centers the 1px stem in the 15px drop width */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    /* Fades from transparent */ rgba(255, 255, 255, 0.25)
+      /* To semi-transparent white */
+  );
+  animation: stem 0.5s linear infinite; /* Assigns stem visibility animation */
+}
+
+/* Keyframes to hide the stem just before the splat */
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0; /* Fade out */
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* The splat effect at the bottom */
+.splat {
+  width: 15px;
+  height: 10px;
+  border-top: 2px dotted rgba(255, 255, 255, 0.5); /* Creates the splat shape */
+  border-radius: 50%; /* Makes the dotted border circular */
+  opacity: 1;
+  transform: scale(0); /* Starts invisible and scaled down */
+  animation: splat 0.5s linear infinite; /* Assigns splat animation */
+}
+
+/* Keyframes for the splat animation */
+@keyframes splat {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0); /* Remain hidden for most of the fall */
+  }
+  90% {
+    opacity: 0.5;
+    transform: scale(1); /* Quickly scale up and fade */
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5); /* Scale up further while fading out */
+  }
+}

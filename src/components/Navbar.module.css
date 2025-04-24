@@ -1,0 +1,415 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+/* Main container for Logo + Nav */
+.navOuterContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes logo and nav apart */
+  width: 100%; /* Take full width of parent */
+  gap: 20px; /* Optional gap */
+  padding: 0px 40px; /* Add padding to the top and bottom */
+}
+
+/* Logo styles (existing glitch effect) */
+.glitchContainer {
+  position: relative;
+  font-family: "Orbitron", sans-serif;
+  font-size: 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #f100e5;
+  text-shadow: 0.05em 0 0 #2433ff, -0.03em -0.04em 0 #ec1616,
+    0.025em 0.04em 0 #f100e5;
+  animation: logoGlitch 725ms infinite; /* Renamed animation */
+}
+
+.glitchContainer span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.glitchContainer span:first-child {
+  animation: logoGlitch 500ms infinite; /* Renamed animation */
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+  transform: translate(-0.04em, -0.03em);
+  opacity: 0.75;
+}
+
+.glitchContainer span:last-child {
+  animation: logoGlitch 375ms infinite; /* Renamed animation */
+  clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+  transform: translate(0.04em, 0.03em);
+  opacity: 0.75;
+}
+
+/* Renamed keyframes for logo glitch */
+@keyframes logoGlitch {
+  0% {
+    text-shadow: 0.05em 0 0 #063fdd, -0.03em -0.04em 0 #d41c1c,
+      0.025em 0.04em 0 #f8d823;
+  }
+  15% {
+    text-shadow: 0.05em 0 0 #063fdd, -0.03em -0.04em 0 #d41c1c,
+      0.025em 0.04em 0 #f8d823;
+  }
+  16% {
+    text-shadow: -0.05em -0.025em 0 #063fdd, 0.025em 0.035em 0 #d41c1c,
+      -0.05em -0.05em 0 #f8d823;
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 #063fdd, 0.025em 0.035em 0 #d41c1c,
+      -0.05em -0.05em 0 #f8d823;
+  }
+  50% {
+    text-shadow: 0.05em 0.035em 0 #063fdd, 0.03em 0 0 #d41c1c,
+      0 -0.04em 0 #f8d823;
+  }
+  99% {
+    text-shadow: 0.05em 0.035em 0 #063fdd, 0.03em 0 0 #d41c1c,
+      0 -0.04em 0 #f8d823;
+  }
+  100% {
+    text-shadow: -0.05em 0 0 #063fdd, -0.025em -0.04em 0 #d41c1c,
+      -0.04em -0.025em 0 #f8d823;
+  }
+}
+
+/* --- New Navigation Button Styles --- */
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.radioWrapper {
+  position: relative;
+  height: 50px;
+  width: 240px;
+  margin: 3px;
+}
+
+.radioWrapper .input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.btn {
+  /* Targeting the Link component now */
+  --primary: #f100e5;
+  --shadow-primary: #fded00;
+  --color: white;
+  --font-size: 20px;
+  --label-size: 9px; /* Added missing variable */
+  --shadow-primary-hue: 180;
+  --shadow-secondary-hue: 60;
+  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+  --clip: polygon(
+    11% 0,
+    95% 0,
+    100% 25%,
+    90% 90%,
+    95% 90%,
+    85% 90%,
+    85% 100%,
+    7% 100%,
+    0 80%
+  );
+  --border: 5px;
+  --shimmy-distance: 5;
+  --clip-one: polygon(
+    0 2%,
+    100% 2%,
+    100% 95%,
+    95% 95%,
+    95% 90%,
+    85% 90%,
+    85% 95%,
+    8% 95%,
+    0 70%
+  );
+  --clip-two: polygon(
+    0 78%,
+    100% 78%,
+    100% 100%,
+    95% 100%,
+    95% 90%,
+    85% 90%,
+    85% 100%,
+    8% 100%,
+    0 78%
+  );
+  --clip-three: polygon(
+    0 44%,
+    100% 44%,
+    100% 54%,
+    95% 54%,
+    95% 54%,
+    85% 54%,
+    85% 54%,
+    8% 54%,
+    0 54%
+  );
+  --clip-four: polygon(
+    0 0,
+    100% 0,
+    100% 0,
+    95% 0,
+    95% 0,
+    85% 0,
+    85% 0,
+    8% 0,
+    0 0
+  );
+  --clip-five: polygon(
+    0 0,
+    100% 0,
+    100% 0,
+    95% 0,
+    95% 0,
+    85% 0,
+    85% 0,
+    8% 0,
+    0 0
+  );
+  --clip-six: polygon(
+    0 40%,
+    100% 40%,
+    100% 85%,
+    95% 85%,
+    95% 85%,
+    85% 85%,
+    85% 85%,
+    8% 85%,
+    0 70%
+  );
+  --clip-seven: polygon(
+    0 63%,
+    100% 63%,
+    100% 80%,
+    95% 80%,
+    95% 80%,
+    85% 80%,
+    85% 80%,
+    8% 80%,
+    0 70%
+  );
+  color: var(--color);
+  text-transform: uppercase;
+  font-size: var(--font-size);
+  letter-spacing: 3px;
+  position: relative;
+  font-weight: 900;
+  width: 100%;
+  height: 100%;
+  line-height: 45px;
+  text-align: center;
+  transition: background 0.2s, 0.3s;
+  display: block; /* Needed for Link component */
+  font-family: "Orbitron", sans-serif; /* Match logo font? */
+  box-sizing: border-box; /* Include padding/border in size */
+  cursor: pointer;
+  z-index: 1;
+}
+
+.input:checked + .btn {
+  /* Target .btn (Link) */
+  --primary: #8b00ff;
+  --shadow-primary: #00e572;
+}
+
+.input:hover + .btn {
+  /* Target .btn (Link) */
+  --primary: #78fa21;
+  --shadow-primary: #f100e5;
+  --font-size: 25px;
+}
+
+.btn:after,
+.btn:before {
+  /* Target .btn (Link) */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  clip-path: var(--clip);
+  z-index: -1;
+}
+
+.btn:before {
+  /* Target .btn (Link) */
+  background: var(--shadow-primary);
+  transform: translate(var(--border), 0);
+}
+
+.btn:after {
+  /* Target .btn (Link) */
+  background: var(--primary);
+}
+
+.btn__tag {
+  /* Target .btn (Link) */
+  position: absolute;
+  padding: 1px 4px;
+  letter-spacing: 1px;
+  line-height: 1;
+  bottom: -5%;
+  right: 5%;
+  font-weight: normal;
+  color: hsl(0, 0%, 0%);
+  font-size: var(--label-size);
+}
+
+.btn__glitch {
+  /* Target .btn (Link) */
+  position: absolute;
+  top: calc(var(--border) * -1);
+  left: calc(var(--border) * -1);
+  right: calc(var(--border) * -1);
+  bottom: calc(var(--border) * -1);
+  background: var(--shadow-primary);
+  text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+  clip-path: var(--clip);
+  animation: glitch 2s infinite;
+  display: none;
+  /* Ensure text inside glitch is also centered if needed */
+  line-height: inherit; /* Inherit from parent .btn */
+  color: var(--color); /* Match parent text color */
+  z-index: 1;
+}
+
+.input:hover + .btn .btn__glitch {
+  /* Target .btn (Link) */
+  display: block;
+}
+
+.input:checked + .btn .btn__glitch {
+  /* Target .btn (Link) */
+  display: block;
+  animation: glitch 5s infinite;
+}
+
+.btn__glitch:before {
+  /* Target .btn (Link) */
+  content: "";
+  position: absolute;
+  top: calc(var(--border) * 1);
+  right: calc(var(--border) * 1);
+  bottom: calc(var(--border) * 1);
+  left: calc(var(--border) * 1);
+  clip-path: var(--clip);
+  background: var(--primary);
+  z-index: -1;
+}
+
+/* Keyframes for button glitch */
+@keyframes glitch {
+  0% {
+    clip-path: var(--clip-one);
+  }
+
+  2%,
+  8% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+
+  6% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  9% {
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
+  }
+
+  10% {
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  13% {
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+
+  14%,
+  21% {
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  25% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  30% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+
+  35%,
+  45% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+
+  40% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+
+  50% {
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+
+  55% {
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+
+  60% {
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+
+  31%,
+  61%,
+  100% {
+    clip-path: var(--clip-four);
+  }
+}
+
+.number {
+  background: var(--shadow-primary);
+  color: #323232;
+  font-size: 5.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: absolute;
+  width: 15px;
+  height: 6px;
+  top: 0;
+  left: 81%;
+  line-height: 6.2px;
+}
+
+/* Style for the label inside the button */
+.btnLabel {
+  display: block;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}

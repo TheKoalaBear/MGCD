@@ -1,0 +1,91 @@
+/* Portfolio Page Styles */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap");
+
+:root {
+  /* Using colors consistent with other pages */
+  --hud-yellow: #fd00db; /* Accent yellow */
+  --hud-bg: #000000; /* Dark background */
+  --hud-text: #ffffff; /* Primary text */
+  --hud-dark-stripe: #1a1a1a; /* Darker stripe color */
+  --hud-red: #ff184c; /* Optional accent */
+}
+
+.portfolioContainer {
+  height: 60vh;
+  background-color: var(--hud-bg);
+  color: var(--hud-text);
+  font-family: "Orbitron", sans-serif;
+  padding: 100px 40px 40px 40px; /* Reduced top padding */
+  /* min-height: 100vh; // Removed for now, let content dictate height */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center the banner */
+}
+
+/* Animation for the stripes */
+@keyframes moveStripes {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 50px 0; /* Adjust speed/distance */
+  }
+}
+
+.constructionBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 80%;
+  max-width: 700px;
+  padding: 15px 20px;
+  border: 2px solid var(--hud-dark-stripe);
+  border-radius: 5px;
+  background-color: var(--hud-yellow);
+  color: var(--hud-dark-stripe);
+  position: relative;
+  overflow: hidden; /* Hide stripes outside bounds */
+  box-shadow: 0 0 15px rgba(253, 237, 0, 0.3); /* Yellow glow */
+}
+
+/* Create the stripes using a pseudo-element */
+.constructionBanner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50px; /* Start slightly off-screen */
+  right: -50px; /* End slightly off-screen */
+  bottom: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--hud-dark-stripe),
+    var(--hud-dark-stripe) 15px,
+    transparent 15px,
+    transparent 30px
+  );
+  z-index: 0; /* Behind text and icons */
+  animation: moveStripes 1s linear infinite;
+}
+
+.warningIcon {
+  color: #ffffff;
+  font-size: 1.8em;
+  position: relative; /* Ensure icon is above pseudo-element */
+  z-index: 1; /* Ensure icon is above pseudo-element */
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+
+.bannerText {
+  width: auto; /* Allow text to size naturally */
+  color: #ffffff;
+  font-size: 1.6em;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative; /* Ensure text is above pseudo-element */
+  z-index: 1; /* Ensure text is above pseudo-element */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}

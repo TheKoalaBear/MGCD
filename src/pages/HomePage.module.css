@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Basic styles */
+body {
+  margin: 0;
+  font-family: Raleway, sans-serif;
+  background-color: #000000; /* White background */
+  color: #ffffff; /* Black text */
+}
+
+/* Use a specific bold font, assuming a web font like Montserrat Bold is available */
+/* You might need to import this font in your main HTML or CSS */
+.homePage,
+.homePage a {
+  font-family: "Montserrat", sans-serif; /* Example: Montserrat */
+  font-weight: 700; /* Bold */
+  position: relative; /* Added for absolute positioning context */
+}
+
+.homeMain {
+  /* Removed top/bottom padding, added specific padding-top */
+  padding: 40px 40px 40px 40px; /* Estimated 100px top padding, adjust as needed */
+  width: 100%;
+}
+
+.contentBox {
+  position: relative; /* Added to ensure it's a positioning context */
+  overflow: hidden; /* Added to clip overflow */
+  background-image: url("../assets/images/bg.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-color: #e0e0e0; /* Light gray background */
+  border-radius: 20px; /* Rounded corners */
+  height: 60vh; /* Consider setting explicit height for percentage animations */
+  /* Padding inside the box */
+  /* Add any other styles for the box here */
+}
+
+/* Define animation at top level */
+@keyframes marquee {
+  from {
+    transform: translateX(80%); /* Start with the first copy fully visible */
+  }
+  to {
+    transform: translateX(-80%); /* Translate left by the width of one copy */
+  }
+}
+
+.marquee {
+  margin-top: 70px;
+  border-radius: 20px;
+  position: relative;
+  width: 100%;
+  height: 2em; /* Relative to font-size */
+  font-size: 5em; /* Adjust base size as needed */
+  line-height: 1; /* Ensure text fits vertically */
+  display: grid; /* Can simplify positioning */
+  place-items: center;
+  overflow: hidden;
+}
+
+/* Apply animation to the text elements */
+.marquee_text {
+  position: absolute; /* Position within the marquee grid cell */
+  min-width: 100%; /* Ensure it's wide enough to scroll */
+  white-space: nowrap;
+  animation: marquee 13s infinite linear;
+  color: #f100e5;
+}
+
+.marquee_blur {
+  position: absolute;
+  inset: 0;
+  display: grid; /* To center the text */
+  place-items: center;
+  background-color: black;
+  /* Gradient masks for fading edges - Increased transition distance */
+  background-image: linear-gradient(to right, #f100e5, 3rem, transparent 50%),
+    linear-gradient(to left, #f100e5, 3rem, transparent 50%);
+  filter: contrast(15);
+  /* Applying the blur directly to the container might be simpler if it works */
+  /* filter: contrast(15) blur(0.07em); */
+}
+
+/* Target the text specifically within the blur container */
+.marquee_blur .marquee_text {
+  filter: blur(0.07em);
+}
+
+.marquee_clear {
+  position: absolute;
+  inset: 0;
+  display: grid; /* To center the text */
+  place-items: center;
+}
+
+/* color: #f100e5;
+  text-shadow: 0 0 10px #f100e5; */

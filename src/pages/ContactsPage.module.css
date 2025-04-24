@@ -1,0 +1,343 @@
+/* Contacts Page Styles - FUI Theme */
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap");
+
+:root {
+  --fui-bg: #000000; /* Very dark background */
+  --fui-line-color: #fd00db; /* Light grey for lines/text */
+  --fui-text-secondary: #fd00db; /* Dimmer text */
+  --fui-accent: var(--fui-line-color); /* Can change if needed */
+}
+
+.contactsContainer {
+  background-color: var(--fui-bg);
+  color: var(--fui-line-color);
+  font-family: "Orbitron", sans-serif;
+  padding: 100px 20px 20px 20px; /* Adjust top padding */
+  min-height: 80%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the main grid */
+  position: relative;
+}
+
+/* --- Main Layout Grid --- */
+.mainGrid {
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Decor | Content | Decor */
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px; /* Limit overall width */
+  height: 80vh; /* Example fixed height */
+  max-height: 800px;
+  position: relative;
+
+  /* Add corner brackets to the main grid */
+}
+.mainGrid::before,
+.mainGrid::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-style: solid;
+  border-color: var(--fui-line-color);
+}
+.mainGrid::before {
+  /* Top-left & bottom-left */
+  top: -10px;
+  left: -10px;
+  border-width: 1px 0 0 1px;
+}
+.mainGrid::after {
+  /* Top-right & bottom-right - requires another element or complex selectors */
+  top: -10px;
+  right: -10px;
+  border-width: 1px 1px 0 0;
+}
+/* Note: Bottom corners are harder with just pseudo-elements on one div */
+
+/* --- Decorative Columns --- */
+.leftDecorCol,
+.rightDecorCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.leftDecorCol {
+  align-items: flex-start;
+}
+
+.rightDecorCol {
+  align-items: flex-end;
+}
+
+/* --- Center Content Column --- */
+.centerContentCol {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #fd00db; /* Faint border */
+  padding: 10px;
+}
+
+/* Header / Footer */
+.topHeader,
+.bottomFooter {
+  padding: 5px 10px;
+  margin: 5px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  position: relative;
+}
+.topHeader span,
+.bottomFooter span {
+  position: relative;
+  z-index: 1;
+}
+
+.headerFrame,
+.footerFrame {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--fui-line-color);
+  /* Add cut corners or angles */
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+}
+.bottomFooter {
+  text-align: right;
+}
+.footerFrame {
+  clip-path: polygon(0% 0%, calc(100% - 10px) 0%, 100% 100%, 10px 100%);
+}
+
+/* Main Title */
+.mainTitle {
+  text-align: center;
+  margin: 30px 0;
+}
+.mainTitle h1 {
+  font-size: 4em; /* Large title */
+  font-weight: 900;
+  margin: 0;
+  letter-spacing: 5px;
+  color: var(--fui-line-color);
+}
+
+/* Content Frame & Info */
+.contentFrame {
+  flex-grow: 1; /* Takes remaining space */
+  border: 1px solid #fd00db;
+  margin: 10px;
+  padding: 20px;
+}
+
+.sectionTitle {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #fd00db;
+  padding-bottom: 5px;
+}
+
+.contactInfo {
+  /* Styles for the contact details block */
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  font-size: 1.1em; /* Increased font size */
+}
+
+.contactIcon {
+  font-size: 1.5em; /* Increased icon size */
+  color: var(--fui-accent);
+}
+
+.contactsContainer a {
+  color: var(--fui-line-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+  font-size: inherit; /* Ensure links inherit the increased size */
+}
+
+.contactsContainer a:hover {
+  color: var(--fui-accent);
+  border-bottom-color: var(--fui-accent);
+}
+
+/* --- Contact Form Styles --- */
+.contactForm {
+  margin-bottom: 30px; /* Space between form and contact info */
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--fui-text-secondary);
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(192, 192, 192, 0.05); /* Very faint bg */
+  border: 1px solid var(--fui-line-color);
+  color: var(--fui-line-color);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.9em;
+  box-sizing: border-box;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--fui-accent);
+  box-shadow: 0 0 8px rgba(192, 192, 192, 0.3); /* Subtle glow on focus */
+}
+
+.formTextarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.formSubmitButton {
+  padding: 10px 25px;
+  border: 1px solid var(--fui-line-color);
+  background-color: transparent;
+  color: var(--fui-line-color);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.9em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.formSubmitButton:hover:not(:disabled) {
+  background-color: var(--fui-line-color);
+  color: var(--fui-bg);
+  box-shadow: 0 0 10px rgba(192, 192, 192, 0.4);
+}
+
+.formSubmitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Status Messages */
+.statusMsgSuccess,
+.statusMsgError {
+  margin-top: 15px;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.statusMsgSuccess {
+  color: #4caf50; /* Green */
+}
+
+.statusMsgError {
+  color: #f44336; /* Red */
+}
+
+/* --- Decorative Elements Examples --- */
+.logoPlaceholder {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--fui-line-color);
+  /* Grid pattern inside */
+  background: linear-gradient(var(--fui-line-color) 1px, transparent 1px) 0 0 /
+      50% 50%,
+    linear-gradient(90deg, var(--fui-line-color) 1px, transparent 1px) 0 0 / 50%
+      50%;
+  background-repeat: repeat;
+}
+
+.dateElement {
+  margin-top: auto;
+} /* Push to bottom */
+.dateLabel {
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+  display: block;
+}
+.dateBoxes {
+  display: grid;
+  grid-template-columns: repeat(2, 20px);
+  gap: 5px;
+}
+.dateBoxes div {
+  height: 20px;
+  border: 1px solid var(--fui-line-color);
+}
+
+.numericDisplay {
+  margin-top: 10px;
+}
+.numericDisplay div {
+  height: 30px;
+  width: 20px;
+  border: 1px solid var(--fui-line-color);
+  margin-bottom: 5px;
+}
+
+.decorDotsGrid {
+  width: 40px;
+  height: 40px; /* Add dot pattern with background */
+}
+.decorElement1,
+.decorElement2 {
+  height: 100px;
+  width: 50px;
+  border: 1px solid var(--fui-line-color); /* Add more complex shapes */
+}
+
+/* Remove Placeholder Styles */
+/* .contactFormPlaceholder { display: none; } */
+/* .formInputPlaceholder { display: none; } */
+/* .formSubmitPlaceholder { display: none; } */
+
+/* --- Loading Bar --- */
+.loadingBar {
+  height: 45px;
+  aspect-ratio: 1.2;
+  /* Use a color variable or define directly */
+  --loader-color: var(--fui-line-color, #c0c0c0);
+  --c: no-repeat
+    repeating-linear-gradient(90deg, var(--loader-color) 0 20%, #0000 0 40%);
+  background: var(--c) 50% 0, var(--c) 50% 100%;
+  background-size: calc(500% / 6) 50%;
+  animation: l10 1s infinite linear;
+  z-index: 10; /* Ensure it's visible */
+}
+
+@keyframes l10 {
+  33% {
+    background-position: 0 0, 100% 100%;
+  }
+  66% {
+    background-position: 0 100%, 100% 0;
+  }
+  100% {
+    background-position: 50% 100%, 50% 0;
+  }
+}

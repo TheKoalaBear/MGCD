@@ -1,0 +1,426 @@
+/* About Page Styles */
+
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap");
+
+:root {
+  --hud-pink: #f100e5; /* Primary red color */
+  --hud-bg: #000000;
+  --hud-text: #ffffff;
+  --hud-secondary-text: #aaaaaa;
+}
+
+.aboutContainer {
+  background-color: var(--hud-bg);
+  color: var(--hud-text);
+  font-family: "Orbitron", sans-serif; /* Techy font */
+  padding: 100px 40px 40px 40px; /* Adjusted top padding */
+  /* min-height: 100vh; // Removed for now */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Top Title --- */
+.titleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.titleText {
+  font-size: 1.2em;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--hud-pink);
+}
+
+.titleDots {
+  color: var(--hud-pink);
+  font-size: 1.5em;
+}
+
+/* --- Main Frame --- */
+.frameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Make sure children stretch vertically */
+  border: 2px solid var(--hud-pink);
+  border-left: none;
+  border-right: none;
+  padding: 10px 0;
+  width: 90%; /* Keep width or adjust */
+  max-width: 1200px; /* Optional max-width */
+  position: relative; /* For positioning decorative elements */
+}
+
+.frameSideLeft,
+.frameSideRight {
+  flex-basis: 100px; /* Width of side sections */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.frameSideLeft {
+  padding-left: 70px;
+  align-items: flex-start;
+}
+.frameSideRight {
+  padding-left: 70px;
+  align-items: flex-end;
+}
+
+.frameMiddle {
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  padding: 0 10px;
+  border-left: 2px solid var(--hud-pink);
+  border-right: 2px solid var(--hud-pink);
+  min-height: 300px; /* Ensure minimum height */
+}
+
+/* --- Decorative Frame Elements --- */
+.frameCornerTopLeft,
+.frameCornerTopRight,
+.frameCornerBottomLeft,
+.frameCornerBottomRight {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--hud-pink);
+  border-style: solid;
+}
+.frameCornerTopLeft {
+  top: -12px;
+  left: -10px;
+  border-width: 2px 0 0 2px;
+}
+.frameCornerTopRight {
+  top: -12px;
+  right: -10px;
+  border-width: 2px 2px 0 0;
+}
+.frameCornerBottomLeft {
+  bottom: -12px;
+  left: -10px;
+  border-width: 0 0 2px 2px;
+}
+.frameCornerBottomRight {
+  bottom: -12px;
+  right: -10px;
+  border-width: 0 2px 2px 0;
+}
+
+.frameBracketLeft,
+.frameBracketRight {
+  position: absolute;
+  width: 30px;
+  height: 60%;
+  border-color: var(--hud-pink);
+  border-style: solid;
+  top: 20%;
+}
+.frameBracketLeft {
+  left: 10px;
+  border-width: 2px 0 2px 2px;
+}
+.frameBracketRight {
+  right: 10px;
+  border-width: 2px 2px 2px 0;
+}
+
+.targetMarker {
+  /* Simple square marker for now */
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--hud-pink);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.frameSideLeft .targetMarker {
+  left: 50px;
+}
+.frameSideRight .targetMarker {
+  right: 50px;
+}
+
+.numberGroupLeft,
+.numberGroupRight {
+  position: absolute;
+  font-size: 0.8em;
+  color: var(--hud-secondary-text);
+  display: flex;
+  flex-direction: column;
+  /* Add text shadow for glitch effect */
+  text-shadow: 1px 0 0 var(--hud-pink), -1px 0 0 var(--hud-pink); /* Basic red horizontal shadow */
+  line-height: 1.2; /* Adjust line spacing */
+}
+.numberGroupLeft {
+  bottom: 15px; /* Adjusted position slightly */
+  left: 20px;
+  align-items: flex-start;
+}
+.numberGroupRight {
+  bottom: 15px; /* Adjusted position slightly */
+  right: 20px;
+  align-items: flex-end;
+}
+
+/* --- Middle Content --- */
+.stripedBox {
+  flex-basis: 100px; /* Width of striped boxes */
+  flex-shrink: 0; /* Prevent shrinking */
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--hud-pink),
+    var(--hud-pink) 5px,
+    transparent 5px,
+    transparent 10px
+  );
+  border: 2px solid var(--hud-pink);
+}
+
+.descriptionBox {
+  display: flex; /* Use flex for children */
+  flex-direction: column; /* Stack contentContainer and analyze text */
+  justify-content: space-between; /* Push analyze text to bottom */
+  flex-grow: 1;
+  /* width: 70%; // Removed fixed width */
+  border: 2px solid var(--hud-pink);
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Add gap between left and right content */
+  width: 100%;
+}
+
+.leftContent {
+  flex-basis: 30%; /* Adjust basis */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center icon and text block */
+  text-align: center; /* Center text lines */
+}
+
+.rightContent {
+  flex-basis: 70%; /* Adjust basis */
+  text-align: left; /* Align profile text left */
+}
+
+/* Style for the FaUser icon */
+.iconStyle {
+  margin-top: 50px;
+  font-size: 4em; /* Adjust size */
+  color: var(--hud-text); /* Match text color or use --hud-pink */
+  margin-bottom: 15px;
+}
+
+.descriptionBox p {
+  margin: 0 0 10px 0;
+  font-size: 0.8em; /* Slightly smaller text */
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--hud-secondary-text); /* Use secondary color for body */
+}
+
+/* Keep label and specific text brighter */
+.descriptionBox .label,
+.descriptionBox .leftContent p {
+  color: var(--hud-text);
+}
+
+.descriptionBox p:last-child {
+  margin-bottom: 0;
+  margin-top: auto; /* Helps push to bottom in flex column */
+  text-align: center; /* Center analyze text */
+  font-size: 0.7em;
+  color: var(--hud-secondary-text);
+}
+
+.label {
+  font-weight: 700;
+  color: var(--hud-pink);
+  margin-right: 10px;
+  display: block; /* Make label block for spacing */
+  margin-bottom: 5px; /* Space below label */
+}
+
+/* Remove margin from location label */
+.rightContent p:nth-last-child(2) .label {
+  margin-right: 0;
+}
+
+/* --- Bottom Section --- */
+.bottomContainer {
+  width: 80%;
+  max-width: 900px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.bottomLine {
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--hud-pink);
+}
+
+.analyzeText {
+  font-size: 1em;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--hud-pink);
+}
+
+/* --- Generic Section Styles --- */
+.sectionContainer {
+  width: 90%; /* Match frame container width */
+  max-width: 1200px; /* Match frame container max-width */
+  margin-top: 50px; /* Space above section */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sectionTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%; /* Adjust width of title area */
+  margin-bottom: 30px;
+  gap: 15px;
+}
+
+.titleLine {
+  flex-grow: 1;
+  height: 1px;
+  background-color: var(--hud-pink);
+}
+
+.sectionTitle {
+  font-size: 1.1em;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--hud-text);
+  text-transform: uppercase;
+  flex-shrink: 0; /* Prevent title from shrinking */
+  margin: 0;
+  padding: 0 10px;
+}
+
+/* --- Expertise Section --- */
+.expertiseGrid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Responsive grid */
+  gap: 20px;
+  width: 100%;
+}
+
+.expertiseCard {
+  background-color: rgba(255, 24, 76, 0.05); /* Very subtle red background */
+  border: 1px solid var(--hud-pink);
+  padding: 25px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.expertiseCard:hover {
+  background-color: rgba(255, 24, 76, 0.15);
+  transform: translateY(-5px);
+}
+
+.expertiseIcon {
+  font-size: 3em;
+  color: var(--hud-pink);
+  margin-bottom: 15px;
+}
+
+.expertiseTitle {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--hud-text);
+  text-transform: uppercase;
+}
+
+.expertiseDescription {
+  font-size: 0.85em;
+  color: var(--hud-secondary-text);
+  line-height: 1.5;
+}
+
+/* --- Work Process Section --- */
+.processSteps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the top */
+  width: 100%;
+  position: relative;
+}
+
+.processStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-basis: 100px; /* Give each step a base width */
+  flex-shrink: 0;
+}
+
+.processIconContainer {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--hud-pink);
+  border-radius: 50%; /* Make it circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: rgba(255, 24, 76, 0.1);
+}
+
+.processIcon {
+  font-size: 1.8em;
+  color: var(--hud-pink);
+}
+
+.processTitle {
+  font-size: 0.8em;
+  font-weight: 700;
+  color: var(--hud-secondary-text);
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.processConnector {
+  flex-grow: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--hud-pink),
+    var(--hud-pink) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  margin: 0 10px; /* Space around connectors */
+  /* Position connector vertically aligned with the middle of the icon container */
+  position: relative;
+  top: 30px; /* Half the height of .processIconContainer */
+}
